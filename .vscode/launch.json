@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "request": "launch",
+            "type": "python",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Launch Edge and open DevTools on FLASK",
+            "request": "launch",
+            "type": "vscode-edge-devtools.debug",
+            "url": "http://localhost:5000", // Provide your project's url to finish configuring
+            "webRoot": "${workspaceFolder}/out",
+            //"port": 80
+        }
+    ]
+}

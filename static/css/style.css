@@ -1,0 +1,170 @@
+body {
+  color: rgb(63, 63, 63);
+}
+main {
+  background-color: #f8f9fa;
+}
+.navbar {
+  background-color: #fff;
+}
+/*.bk {
+  background-color: rgb(240, 240, 240);
+}*/
+main > .container {
+  padding: 125px 15px 0;
+}
+.rounded-4 {
+  border-radius: 4px;
+}
+.rounded-5 {
+  border-radius: 5px;
+}
+.rounded-6 {
+  border-radius: 6px;
+}
+.rounded-7 {
+  border-radius: 7px;
+}
+.rounded-8 {
+  border-radius: 8px;
+}
+.rounded-9 {
+  border-radius: 9px;
+}
+.rounded-10 {
+  border-radius: 10px;
+}
+.rounded-11 {
+  border-radius: 11px;
+}
+.rounded-12 {
+  border-radius: 12px;
+}
+.rounded-13 {
+  border-radius: 13px;
+}
+.rounded-14 {
+  border-radius: 14px;
+}
+.rounded-15 {
+  border-radius: 15px;
+}
+.rounded-16 {
+  border-radius: 16px;
+}
+.rounded-17 {
+  border-radius: 17px;
+}
+.rounded-18 {
+  border-radius: 18px;
+}
+.rounded-19 {
+  border-radius: 19px;
+}
+.rounded-20 {
+  border-radius: 20px;
+}
+.rounded-50 {
+  border-radius: 50%;
+}
+.cb-color {
+  color: #2e4356;
+}
+.cb-border {
+  border: 1px solid #2e4356;
+}
+.cb-bg {
+  background: #2e4356;
+}
+.cards {
+  border: none;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+}
+.page-item.active .page-link {
+  background-color: #ffc107;
+  border-radius: 3px 3px 3px 3px;
+  border: 1px solid #e2e2e2;
+  color: #000;
+}
+.page-link {
+  color: #a3a3a5;
+}
+.paginate_button:hover {
+  background: none;
+  color: black;
+}
+.text-p {
+  color: #d86cb7;
+}
+.text-g {
+  color: #72c054;
+}
+.box_header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.common_tab_btn2 a {
+  color: #7e8299;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 5px 13px;
+}
+.common_tab_btn2 a:hover {
+  cursor: pointer;
+}
+
+.common_tab_btn2 a.active {
+  color: rgb(32, 32, 32);
+  background-color: #ffc107;
+}
+
+.title {
+  font-weight: 600;
+}
+.title-marge {
+  margin: 0px 0px 0px 15px;
+}
+.title-marge1 {
+  margin: 0px 5px 0px 0px;
+}
+/*.page-link:hover {
+  outline: 4px dotted #e73;
+  color: black;
+}*/
+.card_height_100 {
+  height: calc(100% - 15px);
+}
+.card_tatle {
+  margin: 25px 0px 0px 30px;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+
+.card_text {
+  margin: 15px 23px 25px 0px;
+  color: rgb(61, 61, 61);
+  font-size: 32px;
+  letter-spacing: 4px;
+}
+.card_text_s {
+  color: rgb(61, 61, 61);
+  font-size: 15px;
+}
+.fs-20 {
+  font-size: 20px;
+}
+.t-b {
+  color: rgb(75, 75, 75);
+  letter-spacing: 3px;
+}
+.t-bn {
+  color: rgb(136, 136, 136);
+}
+footer {
+  background-color: rgb(240, 240, 240);
+}

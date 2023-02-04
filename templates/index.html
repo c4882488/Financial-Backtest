@@ -1,0 +1,135 @@
+{% extends "templates.html" %}
+{% block content %}
+<main class="flex-shrink-0">
+  <!--container-fluid-->
+  <div class="container pb-3 bk">
+    <div class="row row-cols-1 row-cols-xl-2 mb-2 mb-lg-4">
+
+      <div class="col col-xl-3 mb-3 mb-lg-0">
+        <div class="cards rounded-13 bg-white m-2 card_height_100 ">
+          <p class="fs-4 p-3 border-bottom"><i class="fas fa-dragon title-marge1"></i> 交易策略</p>
+          <div class="m-3 mt-2">
+            <label class="form-label">自選股</label>
+            <input type="text" id="stock" class="form-control" placeholder="輸入股號" value="2330">
+          </div>
+          <div class="m-3">
+            <label class="form-label">K棒的頻率(次/m)</label>
+            <input type="text" id="KbarsMinutes" class="form-control" placeholder="輸入K棒頻率" value="60">
+          </div>
+          <div class="m-3">
+            <label class="form-label">K棒取幾根新高</label>
+            <input type="text" id="KbarsNewHigh" class="form-control" placeholder="輸入K棒幾根新高" value="2">
+          </div>
+          <div class="m-3">
+            <label class="form-label">停損</label>
+            <input type="text" id="StopLoss" class="form-control" placeholder="輸入小數" value="4.5">
+          </div>
+
+          <button type="submit title" id="submit" class="btn btn-outline-warning m-4 mt-2 mb-3 mb-0">Submit</button>
+        </div>
+      </div>
+
+      <div class="col col-xl-9 mb-3 mb-lg-0">
+        <div class="cards rounded-13 bg-white m-2 card_height_100">
+          <div class="fs-4 p-3 pb-0 d-flex flex-wrap box_header">
+            <div class="title-marge">Revenue</div>
+            <div class="d-flex justify-content-end common_tab_btn2">
+              <ul class="nav RevenueYear">
+                <li class="nav-item">
+                  <a class="nav-link active">ALL</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link">2017</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link">2018</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <canvas class="m-3" id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mb-0 mb-lg-4 mb-2 mb-lg-4">
+      <div class="col col-12 col-lg-4">
+        <div class="border cards rounded-13 bg-white m-2 mt-0 mb-3 mb-lg-0">
+          <div class="card_tatle">總損益</div>
+          <div class="card_text text-end"><span id="Total_Profit"></span><span class="card_text_s"> 元</span></div>
+        </div>
+      </div>
+      <div class="col col-12 col-lg-4">
+        <div class="border cards rounded-13 bg-white m-2 mt-0 mb-3 mb-lg-0">
+          <div class="card_tatle">交易次數</div>
+          <div class="card_text text-end"><span id="Total_Trade"></span><span class="card_text_s"> 次</span></div>
+        </div>
+      </div>
+      <div class="col col-12 col-lg-4">
+        <div class="border cards rounded-13 bg-white m-2 mt-0 mb-3 mb-lg-0">
+          <div class="card_tatle">平均損益</div>
+          <div class="card_text text-end"><span id="Avg_Profit"></span><span class="card_text_s"> 元</span></div>
+        </div>
+      </div>
+      <!--<div class="col">
+        <div class="border rounded-13 bg-white m-2 mt-0">
+          <div class="card_tatle">總損益</div>
+          <div class="card_text text-end">12390<span class="card_text_s"> 元</span></div>
+        </div>
+      </div>-->
+    </div>
+    
+    <div class="row row-cols-1 row-cols-md-2">
+    
+      <div class="col col-md-12 col-xl-4 mb-3 mb-lg-0">
+        <div class="border cards rounded-13 bg-white m-2 mt-0 card_height_100">
+          <p class="fs-4 p-3 border-bottom">
+          <i class="fas fa-flag-checkered title-marge1" data-fa-transform="rotate-30"></i> 績效表</p>
+          <div class="m-4">
+            <!--<p class="fs-5 mt-2">總損益：<span id="Total_Profit"></span></p>
+            <p class="fs-6 mt-2">交易次數：<span id="Total_Trade"></span></p>
+            <p class="fs-6 mt-2">平均損益：<span id="Avg_Profit"></span></p>-->
+            <div class="fs-5 mt-1 t-b">勝率：</div>
+            <div class="fs-20 text-end t-bn border-button" id="Win_Rate"></div>
+            <div class="fs-5 mt-3 t-b">獲利因子：</div>
+            <div class="fs-20 text-end t-bn" id="Profit_Factor"></div>
+            <div class="fs-5 mt-3 t-b">賺賠比：</div>
+            <div class="fs-20 text-end t-bn" id="Win_Loss_Rate"></div>
+            <div class="fs-5 mt-3 t-b">最大資金回落：</div>
+            <div class="fs-20 text-end t-bn" id="MDD"></div>
+            <div class="fs-5 mt-3 t-b">夏普比率：</div>
+            <div class="fs-20 text-end t-bn" id="Sharpe_Ratio"></div>
+            <div class="fs-5 mt-3 t-b">是否超額交易：</div>
+            <div class="fs-20 text-end t-bn" id="Over_5_Millions"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-md-12 col-xl-8 mb-3 mb-lg-0">
+        <div class="border cards rounded-13 bg-white m-2 mt-0">
+          <div class="m-4">
+            <table id="datatable" class="table table-striped table-hover">
+              <thead>
+                  <tr>
+                      <th class="d-table-cell d-lg-none">　</th>
+                      <th class="d-none d-lg-table-cell">買進日期</th>
+                      <th class="d-none d-lg-table-cell">時間</th>
+                      <th>買進價格</th>
+                      <th class="d-none d-lg-table-cell">售出日期</th>
+                      <th class="d-none d-lg-table-cell">時間</th>
+                      <th>售出價格</th>
+                      <th class="d-none d-lg-table-cell">數量</th>
+                      <th>獲利</th>
+                  </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
